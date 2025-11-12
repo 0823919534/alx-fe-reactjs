@@ -1,0 +1,31 @@
+import React from 'react';
+import { useRecipeStore } from '../stores/recipeStore';
+
+const RecipeList = () => {
+  const recipes = useRecipeStore((state) => state.recipes);
+
+  if (!recipes || recipes.length === 0) {
+    return <div>No recipes yet. Add one!</div>;
+  }
+
+  return (
+    <div>
+      {recipes.map((recipe) => (
+        <article
+          key={recipe.id}
+          style={{
+            border: '1px solid #ddd',
+            padding: 12,
+            marginBottom: 8,
+            borderRadius: 6,
+          }}
+        >
+          <h3 style={{ margin: '0 0 6px' }}>{recipe.title}</h3>
+          <p style={{ margin: 0 }}>{recipe.description}</p>
+        </article>
+      ))}
+    </div>
+  );
+};
+
+export default RecipeList;
