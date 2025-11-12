@@ -4,19 +4,10 @@ import AddRecipeForm from './components/AddRecipeForm';
 
 function App() {
   return (
-    <div style={{ maxWidth: 720, margin: '40px auto', padding: 20, fontFamily: 'sans-serif' }}>
-      <header style={{ marginBottom: 24 }}>
-        <h1>Recipe Sharing App</h1>
-        <p>Add and share simple recipes with Zustand state</p>
-      </header>
-
-      <section style={{ marginBottom: 24 }}>
-        <AddRecipeForm />
-      </section>
-
-      <section>
-        <RecipeList />
-      </section>
+    <div style={{ maxWidth: 720, margin: '40px auto', padding: 20 }}>
+      <h1>Recipe Sharing App</h1>
+      <AddRecipeForm />
+      <RecipeList />
     </div>
   );
 }
