@@ -16,12 +16,12 @@ function AddRecipeForm() {
   return (
     <form onSubmit={handleSubmit}>
       <input
-        type="text"
+        type='text'
         value={name}
         onChange={(e) => setName(e.target.value)}
-        placeholder="Recipe name"
+        placeholder='Recipe name'
       />
-      <button type="submit">Add Recipe</button>
+      <button type='submit'>Add Recipe</button>
     </form>
   );
 }
