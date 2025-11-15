@@ -1,4 +1,3 @@
-import React from 'react';
 import { useRecipeStore } from '../recipeStore';
 
 export default function RecipeList() {
