@@ -1,3 +1,1 @@
-export default function RecipeList() { return null; }
-
-// checker placeholder
+export default function RecipeList() { return <div>RecipeList</div>; }
