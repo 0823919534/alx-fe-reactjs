@@ -1,6 +1,7 @@
+@"
 import React from 'react';
-import AddRecipeForm from './components/AddRecipeForm';
 import RecipeList from './components/RecipeList';
+import AddRecipeForm from './components/AddRecipeForm';
 
 export default function App() {
   return (
@@ -11,3 +12,4 @@ export default function App() {
     </div>
   );
 }
+"@ | Set-Content -Path src\App.jsx -Encoding UTF8
