@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useRecipeStore } from '../recipeStore';
 
 export default function AddRecipeForm() {
-  const addRecipe = useRecipeStore((state) => state.addRecipe);
+  const addRecipe = useRecipeStore(state => state.addRecipe);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
@@ -19,16 +19,18 @@ export default function AddRecipeForm() {
       <input
         type='text'
         value={title}
-        onChange={(e) => setTitle(e.target.value)}
+        onChange={e => setTitle(e.target.value)}
         placeholder='Title'
+        required
       />
       <textarea
         value={description}
-        onChange={(e) => setDescription(e.target.value)}
+        onChange={e => setDescription(e.target.value)}
         placeholder='Description'
+        required
       />
       <button type='submit'>Add Recipe</button>
     </form>
   );
 }
-"@ | Set-Content -Path src\components\AddRecipeForm.jsx -Encoding UTF8
+"@ | Set-Content -Path src/components/AddRecipeForm.jsx -Encoding UTF8
