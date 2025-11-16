@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useRecipeStore } from '../recipeStore';
 import EditRecipeForm from './EditRecipeForm';
 import DeleteRecipeButton from './DeleteRecipeButton';
@@ -8,14 +8,24 @@ const RecipeDetails = ({ recipeId }) => {
     state.recipes.find(r => r.id === recipeId)
   );
 
-  if (!recipe) return <p>Recipe not found</p>;
+  const [isEditing, setIsEditing] = useState(false);
+
+  if (!recipe) {
+    return <p>Recipe not found</p>;
+  }
 
   return (
     <div>
-      <h1>{recipe.title}</h1>
-      <p>{recipe.description}</p>
-      <EditRecipeForm recipe={recipe} />
-      <DeleteRecipeButton recipeId={recipe.id} />
+      {isEditing ? (
+        <EditRecipeForm recipe={recipe} onCancel={() => setIsEditing(false)} />
+      ) : (
+        <>
+          <h1>{recipe.title}</h1>
+          <p>{recipe.description}</p>
+          <button onClick={() => setIsEditing(true)}>Edit Recipe</button>
+          <DeleteRecipeButton recipeId={recipe.id} />
+        </>
+      )}
     </div>
   );
 };
