@@ -1,3 +1,4 @@
+@"
 import React, { useState } from 'react';
 import { useRecipeStore } from '../recipeStore';
 
@@ -8,7 +9,6 @@ export default function AddRecipeForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!title) return;
     addRecipe({ id: Date.now(), title, description });
     setTitle('');
     setDescription('');
@@ -31,3 +31,4 @@ export default function AddRecipeForm() {
     </form>
   );
 }
+"@ | Set-Content -Path src\components\AddRecipeForm.jsx -Encoding UTF8
