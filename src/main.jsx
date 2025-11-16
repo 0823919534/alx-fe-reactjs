@@ -1,5 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 import App from './App';
+import './index.css';
 
-ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+const rootEl = document.getElementById('root');
+if (!rootEl) {
+  throw new Error('Missing <div id=\"root\"></div> in index.html');
+}
+createRoot(rootEl).render(<App />);
