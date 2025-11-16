@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import { useRecipeStore } from '../recipeStore';
 
-const EditRecipeForm = ({ recipe, onCancel }) => {
-  const updateRecipe = useRecipeStore(state => state.updateRecipe);
+export default function EditRecipeForm({ recipe, onClose }) {
+  const updateRecipe = useRecipeStore((state) => state.updateRecipe);
   const [title, setTitle] = useState(recipe.title);
   const [description, setDescription] = useState(recipe.description);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
     updateRecipe({ ...recipe, title, description });
-    onCancel(); // exit edit mode
+    onClose(); // close form after update
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
+      <input 
         type="text"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
@@ -25,8 +25,8 @@ const EditRecipeForm = ({ recipe, onCancel }) => {
         onChange={(e) => setDescription(e.target.value)}
         placeholder="Description"
       />
-      <button type="submit">Save Changes</button>
-      <button type="button" onClick={onCancel}>Cancel</button>
+      <button type="submit">Update Recipe</button>
+      <button type="button" onClick={onClose}>Cancel</button>
     </form>
   );
-};
+}
