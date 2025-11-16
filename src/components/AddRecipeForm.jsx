@@ -9,6 +9,7 @@ export default function AddRecipeForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!title.trim() || !description.trim()) return;
     addRecipe({ id: Date.now(), title, description });
     setTitle('');
     setDescription('');
@@ -21,13 +22,11 @@ export default function AddRecipeForm() {
         value={title}
         onChange={e => setTitle(e.target.value)}
         placeholder='Title'
-        required
       />
       <textarea
         value={description}
         onChange={e => setDescription(e.target.value)}
         placeholder='Description'
-        required
       />
       <button type='submit'>Add Recipe</button>
     </form>
