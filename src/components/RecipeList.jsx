@@ -3,21 +3,21 @@ import React from 'react';
 import { useRecipeStore } from '../recipeStore';
 
 export default function RecipeList() {
-  const recipes = useRecipeStore((state) => state.recipes || []);
+  const recipes = useRecipeStore(state => state.recipes);
+
+  if (recipes.length === 0) {
+    return <p>No recipes yet</p>;
+  }
 
   return (
     <div>
-      {recipes.length === 0 ? (
-        <p>No recipes yet</p>
-      ) : (
-        recipes.map((recipe) => (
-          <div key={recipe.id}>
-            <h3>{recipe.title}</h3>
-            <p>{recipe.description}</p>
-          </div>
-        ))
-      )}
+      {recipes.map(recipe => (
+        <div key={recipe.id}>
+          <h3>{recipe.title}</h3>
+          <p>{recipe.description}</p>
+        </div>
+      ))}
     </div>
   );
 }
-"@ | Set-Content -Path src\components\RecipeList.jsx -Encoding UTF8
+"@ | Set-Content -Path src/components/RecipeList.jsx -Encoding UTF8
