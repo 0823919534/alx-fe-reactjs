@@ -12,4 +12,4 @@ export default function App() {
     </div>
   );
 }
-"@ | Set-Content -Path src\App.jsx -Encoding UTF8
+"@ | Set-Content -Path src/App.jsx -Encoding UTF8
