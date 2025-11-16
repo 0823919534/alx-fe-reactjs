@@ -9,4 +9,4 @@ if (!rootEl) {
   throw new Error('Missing <div id=\"root\"></div> in index.html');
 }
 createRoot(rootEl).render(<App />);
-"@ | Set-Content -Path src\main.jsx -Encoding UTF8
+"@ | Set-Content -Path src/main.jsx -Encoding UTF8
