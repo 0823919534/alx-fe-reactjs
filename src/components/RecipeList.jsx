@@ -1,8 +1,10 @@
+@"
 import React from 'react';
 import { useRecipeStore } from '../recipeStore';
 
 export default function RecipeList() {
   const recipes = useRecipeStore((state) => state.recipes || []);
+
   return (
     <div>
       {recipes.length === 0 ? (
@@ -18,3 +20,4 @@ export default function RecipeList() {
     </div>
   );
 }
+"@ | Set-Content -Path src\components\RecipeList.jsx -Encoding UTF8
